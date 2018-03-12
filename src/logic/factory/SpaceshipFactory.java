@@ -13,6 +13,7 @@ public class SpaceshipFactory {
     private static final int[] HEIGHTS = {65, 35, 85, 100};
 
     public Spaceship createSpaceship(int type, Point point) {
-
+        Spaceship spaceship = new Spaceship();
+        return spaceship;
     }
 }

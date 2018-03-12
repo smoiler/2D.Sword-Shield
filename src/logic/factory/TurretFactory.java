@@ -1,5 +1,7 @@
 package logic.factory;
 
+import entity.Turret;
+
 import java.awt.*;
 
 public class TurretFactory {
@@ -10,10 +12,7 @@ public class TurretFactory {
     private static final int[] HEIGHTS = {};
 
     public Turret createTurret(int type, Point point) {
-
-    }
-
-    public int getCost(int type) {
-        return COSTS[type];
+        Turret turret = new Turret();
+        return turret;
     }
 }

@@ -19,6 +19,8 @@ public class ActionPanel extends JPanel {
     private JButton saveButton;
 
     public ActionPanel() {
+        turnButton = new JButton(">");
+        pauseButton = new JButton("II");
 
     }
 

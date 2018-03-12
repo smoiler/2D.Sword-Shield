@@ -13,10 +13,8 @@ public class FactoryFactory {
     private static final int[] HEIGHTS = {100, 75, 45};
 
     public Factory createFactory(int type, Point point) {
+        Factory factory = new Factory();
 
-    }
-
-    public int getCost(int type) {
-        return COSTS[type];
+        return factory;
     }
 }

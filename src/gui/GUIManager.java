@@ -1,40 +1,49 @@
 package gui;
 
-import entity.GameObject;
-
 import javax.swing.*;
 
 public class GUIManager {
 
     private JFrame frame;
-    private JPanel currentPanel;
+    private MenuPanel menuPanel;
+    private LoadPanel loadPanel;
+    private CreditsPanel creditsPanel;
+    private GamePanel gamePanel;
 
-    public GUIManager() {
-    }
-
-    // Load game
-    // to be implemented after iteration I.
+    // TODO will be implemented after iteration I.
     private int loadGameIndex;
 
-    private void showMenu() {
+    public GUIManager() {
+        menuPanel = new MenuPanel();
+        loadPanel = new LoadPanel();
+        creditsPanel = new CreditsPanel();
+        gamePanel = new GamePanel();
 
+        frame = new JFrame("Sword&Shield: A Space Adventure");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(gamePanel);
+        frame.pack();
+        frame.setVisible(true);
     }
 
-    private void showLoad() {
-
+    private void showMenuPanel() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(menuPanel);
     }
 
-    private void showCredits() {
-
+    private void showLoadPanel() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(loadPanel);
     }
 
-    private void showGame() {
-
+    private void showCreditsPanel() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(creditsPanel);
     }
 
-    // Sound on/off
-    // to be implemented after iteration I
-    private void mute() {
-
+    private void showGamePanel() {
+        frame.getContentPane().removeAll();
+        frame.getContentPane().add(gamePanel);
     }
+
 }

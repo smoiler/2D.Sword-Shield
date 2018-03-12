@@ -17,6 +17,8 @@ public class ReactorManager {
     }
 
     public int gatherGold() {
+        // TODO implement this method
+        return 4;
     }
 
     public void render(Graphics g) {

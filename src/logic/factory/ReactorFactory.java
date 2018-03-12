@@ -1,5 +1,7 @@
 package logic.factory;
 
+import entity.Reactor;
+
 import java.awt.*;
 
 public class ReactorFactory {
@@ -11,8 +13,10 @@ public class ReactorFactory {
     private static final int WIDTH = 55;
     private static final int HEIGHT = 100;
 
-    public createReactor(Point point) {
+    public Reactor createReactor(Point point) {
+        Reactor reactor = new Reactor();
 
+        return reactor;
     }
 
     public int getCost() {

@@ -12,8 +12,14 @@ public class TurretManager {
     private ArrayList<GameObject> turrets;
     private TurretFactory turretFactory;
 
-    public Projectile[] fireProjectiles() {
+    public ArrayList<GameObject> fireProjectiles() {
+        ArrayList<GameObject> projectiles = new ArrayList<>();
 
+        for (GameObject turret : turrets) {
+
+        }
+
+        return projectiles;
     }
 
     public void render(Graphics g) {

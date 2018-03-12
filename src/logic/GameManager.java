@@ -44,10 +44,6 @@ public class GameManager {
         return turnCount > MAX_TURNS;
     }
 
-    public void update() {
-
-    }
-
     public int getDefenderScore() {
         return defender.getScore();
     }
@@ -66,6 +62,10 @@ public class GameManager {
 
     public int getTimeLeft() {
         return timeLeft;
+    }
+
+    public void update() {
+
     }
 
     public void render(Graphics g) {

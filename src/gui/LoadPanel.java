@@ -33,6 +33,7 @@ public class LoadPanel extends JPanel {
         selectButton = new JButton("Select");
         selectButton.addActionListener( select -> {
             // TODO will be implemented after iteration I
+            GUIManager.getInstance().showGamePanel();
         });
 
         removeButton = new JButton( "Remove");

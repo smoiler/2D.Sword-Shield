@@ -6,11 +6,12 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // GUIManager guiManager = new GUIManager();
-        JFrame frame = new JFrame("Ali");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new ActionPanel());
-        frame.pack();
-        frame.setVisible(true);
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        GUIManager guiManager = GUIManager.getInstance();
+        GUIManager.getInstance().showMenuPanel();
     }
 }

@@ -24,8 +24,9 @@ public class CreditsPanel extends JPanel {
         backButton = new JButton("Back");
         nameLabels = new JLabel[names.length];
         backButton.addActionListener(back -> {
-
+            GUIManager.getInstance().showMenuPanel();
         });
+
         for (int i = 0; i < names.length; ++i)
             nameLabels[i] = new JLabel(names[i]);
 

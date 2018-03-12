@@ -19,8 +19,6 @@ public class MenuPanel extends JPanel {
     private JButton creditsButton;
     private JButton soundButton;
 
-
-
     public MenuPanel() {
         fileManager = new FileManager();
         backgroundImage = fileManager.getImage("/images/menu_bg.jpg");
@@ -29,17 +27,17 @@ public class MenuPanel extends JPanel {
 
         playButton = new JButton("Play");
         playButton.addActionListener(play -> {
-
+            GUIManager.getInstance().showGamePanel();
         });
 
         loadButton = new JButton("Load");
         loadButton.addActionListener(load -> {
-
+            GUIManager.getInstance().showLoadPanel();
         });
 
         creditsButton = new JButton("Credits");
         creditsButton.addActionListener(credits -> {
-
+            GUIManager.getInstance().showCreditsPanel();
         });
 
         soundButton = new JButton("Sound On/Off");

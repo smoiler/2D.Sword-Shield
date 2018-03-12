@@ -1,5 +1,12 @@
 package gui;
 
+/* Author: Mehmet Enes Keles
+ * Date: 12.03.2018
+ *
+ * ActionPanel is the UI component that carries the GameManager. Main flow of events are shown through ActionPanel.
+ * These events include movement of the game objects, change in score and gold, change in remaining time.
+ */
+
 import logic.GameManager;
 import util.FileManager;
 
@@ -33,6 +40,7 @@ public class ActionPanel extends JPanel {
         gameManager = new GameManager();
         backgroundImage = fileManager.getImage("/images/menu_bg.jpg");
 
+        // set timer
         timer = new Timer(DELAY, iterateGameState -> {
             gameManager.update();
 
@@ -50,6 +58,7 @@ public class ActionPanel extends JPanel {
         defenderGold = new JLabel("" + gameManager.getDefenderGold());
         timeLeft = new JLabel("" + gameManager.getTimeLeft());
 
+        // panel at the top
         statsPanel = new JPanel();
         statsPanel.setLayout(new FlowLayout());
         statsPanel.add(attackerScore);
@@ -62,6 +71,8 @@ public class ActionPanel extends JPanel {
         turnButton = new JButton(">");
         pauseButton = new JButton("II");
         saveButton = new JButton("Save");
+
+        // panel at the bottom
         utilityPanel = new JPanel();
         utilityPanel.setLayout(new FlowLayout());
         utilityPanel.add(pauseButton);
@@ -81,7 +92,7 @@ public class ActionPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(backgroundImage, 0, 0, null);
-        // gameManager.render(g);
+        // TODO gameManager.render(g);
     }
 
 }

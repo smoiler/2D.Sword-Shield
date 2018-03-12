@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SpaceshipManager {
+
     private ArrayList<GameObject> spaceships;
     private SpaceshipFactory spaceshipFactory;
 
@@ -20,6 +21,5 @@ public class SpaceshipManager {
     }
 
     public void render(Graphics g) {
-
     }
 }

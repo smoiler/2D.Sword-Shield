@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class TurretManager {
 
+
     private ArrayList<GameObject> turrets;
     private TurretFactory turretFactory;
 

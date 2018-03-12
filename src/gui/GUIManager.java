@@ -21,7 +21,7 @@ public class GUIManager {
 
         frame = new JFrame("Sword&Shield: A Space Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(gamePanel);
+        frame.getContentPane().add(menuPanel);
         frame.pack();
         frame.setVisible(true);
     }

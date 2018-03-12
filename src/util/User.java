@@ -1,14 +1,20 @@
 package util;
 
 public class User {
-    private int turnsWon;
+    private int score;
+    private int gold;
 
-    public int getTurnsWon() {
-        return turnsWon;
+    public User() {
+        this.score = 0;
+        this.gold = 800;
     }
 
-    public void setTurnsWon(int turnsWon) {
-        this.turnsWon = turnsWon;
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getGold() {
@@ -19,5 +25,4 @@ public class User {
         this.gold = gold;
     }
 
-    private int gold;
 }

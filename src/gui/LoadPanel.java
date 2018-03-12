@@ -44,14 +44,7 @@ public class LoadPanel extends JPanel {
        // add(pane, BorderLayout.CENTER);
         add(selectButton, BorderLayout.EAST);
         add(removeButton, BorderLayout.WEST);
-    }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Ali");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new MenuPanel());
-        frame.setSize(500, 300);
-        frame.setVisible(true);
+        setPreferredSize(new Dimension(800, 600));
     }
-
 }

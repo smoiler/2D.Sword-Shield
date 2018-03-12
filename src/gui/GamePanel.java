@@ -11,13 +11,10 @@ public class GamePanel extends JPanel {
     private MouseManager mouseManager;
 
     public GamePanel() {
+        mouseManager = new MouseManager();
+        actionPanel = new ActionPanel();
+        attackUnitsPanel = new UnitsPanel("Attack");
+        defenseUnitsPanel = new UnitsPanel("Defense");
 
-    }
-
-    private class GameHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
     }
 }

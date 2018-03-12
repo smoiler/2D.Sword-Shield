@@ -54,6 +54,8 @@ public class MenuPanel extends JPanel {
         add(creditsButton);
         add(Box.createRigidArea(new Dimension(0, 10)));
         add(soundButton);
+
+        setPreferredSize(new Dimension(800, 600));
     }
 
     protected void paintComponent(Graphics g) {

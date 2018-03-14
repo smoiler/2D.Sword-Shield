@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class MenuButton extends JButton {
     private final int IMAGE_MARGIN = 35;
@@ -32,7 +31,7 @@ public class MenuButton extends JButton {
             public void mouseEntered(MouseEvent e) {
                 setIcon(new ImageIcon(hoverImage));
                 setBounds(new Rectangle(buttonX-HOVER_IMAGE_MARGIN, buttonY, hoverImage.getWidth(), hoverImage.getHeight()));
-                SoundManager.getInstance().playSound("/sound/menubuttonsound.wav");
+                SoundManager.getInstance().playSound("/sounds/menubuttonsound.wav");
             }
 
             public void mouseExited(MouseEvent e) {

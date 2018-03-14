@@ -17,6 +17,7 @@ public class UnitCardPanel extends JPanel {
     public static final int WIDTH = 150;
     public static final int HEIGHT = 120;
 
+    private BufferedImage background;
     private String unitName;
     private String subUnitName;
     private int unitCost;
@@ -30,13 +31,16 @@ public class UnitCardPanel extends JPanel {
         this.subUnitName = subUnitName;
         this.unitCost = unitCost;
         selected = false;
+
+        background = FileManager.getInstance().getImage("/images/gamepanel/unitcardbg.png");
+        background = FileManager.getInstance().getResizedImage(background, WIDTH, HEIGHT);
+
         unitImage = FileManager.getInstance().getImage(unitImagepath);
         unitImage = FileManager.getInstance().getResizedImage(unitImage, 50, 50);
-
         // reactor doesn't have a sub unit
         if (subUnitImagepath != null) {
             subUnitImage = FileManager.getInstance().getImage(subUnitImagepath);
-            subUnitImage = FileManager.getInstance().getResizedImage(subUnitImage, 40, 40);
+            subUnitImage = FileManager.getInstance().getResizedImage(subUnitImage, 30, 30);
         }
 
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -45,17 +49,17 @@ public class UnitCardPanel extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        g.drawImage(background, 0, 0, null);
         g.drawImage(unitImage, 10, 10, null);
         if (subUnitImage != null)
-            g.drawImage(unitImage, 10, 80, null);
+            g.drawImage(subUnitImage, 10, 70, null);
 
         g.setFont(new Font("Helvetica", Font.PLAIN, 10));
         g.setColor(Color.RED);
         g.drawString(unitName,60,10);
 
         if (subUnitName != null)
-            g.drawString(subUnitName, 60, 80);
+            g.drawString(subUnitName, 60, 70);
 
         if (selected)
             g.setColor(Color.BLUE);

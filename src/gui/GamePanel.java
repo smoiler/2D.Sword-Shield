@@ -3,6 +3,7 @@ package gui;
 import logic.GameManager;
 import util.FileManager;
 
+import javax.rmi.CORBA.Util;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,13 +31,13 @@ public class GamePanel extends JPanel {
         gameManager = new GameManager();
         actionPanel = new ActionPanel();
         attackUnitsPanel = new UnitsPanel("Attack");
-        attackUnitsPanel.setBounds(new Rectangle(0, 0, 150, 600));
+        attackUnitsPanel.setBounds(new Rectangle(0, 0, UnitsPanel.WIDTH, UnitsPanel.HEIGHT));
         defenseUnitsPanel = new UnitsPanel("Defense");
         defenseUnitsPanel.setBounds(new Rectangle(650, 0, 150, 600));
         statsPanel = new StatsPanel();
-        statsPanel.setBounds(new Rectangle(150, 0, 500, 50));
+        statsPanel.setBounds(new Rectangle(200, 0, StatsPanel.WIDTH, StatsPanel.HEIGHT));
         utilityPanel = new UtilityPanel();
-        utilityPanel.setBounds(150, 550, 500, 50);
+        utilityPanel.setBounds(200, 550, UtilityPanel.WIDTH, UtilityPanel.HEIGHT);
 
         // set timer
         timer = new Timer(DELAY, iterateGameState -> {

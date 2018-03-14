@@ -14,8 +14,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class UnitsPanel extends JPanel {
-    private final int HEIGHT = 600;
-    private final int WIDTH = 150;
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 150;
 
     private UnitCardPanel[] unitCards;
     private int selected;

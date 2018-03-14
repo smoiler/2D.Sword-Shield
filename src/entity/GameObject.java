@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 public abstract class GameObject {
 
-    private Boundary boundary;
+    public Boundary boundary;
     private BufferedImage image;
 
     public Boundary getBoundary() {

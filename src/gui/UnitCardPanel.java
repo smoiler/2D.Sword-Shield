@@ -8,33 +8,36 @@ package gui;
 import util.FileManager;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class UnitCardPanel extends JPanel {
     public static final int WIDTH = 150;
     public static final int HEIGHT = 120;
 
-    private boolean selected;
     private String unitName;
     private String subUnitName;
     private int unitCost;
 
+    private boolean selected;
     private BufferedImage unitImage;
     private BufferedImage subUnitImage;
 
     public UnitCardPanel(String unitName, String subUnitName, int unitCost, String unitImagepath, String subUnitImagepath) {
-        selected = false;
-
         this.unitName = unitName;
         this.subUnitName = subUnitName;
-
         this.unitCost = unitCost;
-
+        selected = false;
         unitImage = FileManager.getInstance().getImage(unitImagepath);
+        unitImage = FileManager.getInstance().getResizedImage(unitImage, 50, 50);
 
         // reactor doesn't have a sub unit
-        if (subUnitImagepath != null)
+        if (subUnitImagepath != null) {
             subUnitImage = FileManager.getInstance().getImage(subUnitImagepath);
+            subUnitImage = FileManager.getInstance().getResizedImage(subUnitImage, 40, 40);
+        }
 
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.BLACK);
@@ -54,12 +57,14 @@ public class UnitCardPanel extends JPanel {
         if (subUnitName != null)
             g.drawString(subUnitName, 60, 80);
 
-        g.setColor(Color.BLUE);
+        if (selected)
+            g.setColor(Color.BLUE);
+        else
+            g.setColor(Color.YELLOW);
         g.drawRect(1, 1, WIDTH - 2, HEIGHT - 2);
-
     }
 
-    public void unselect() {
-
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

@@ -12,13 +12,19 @@ import util.FileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 public class ActionPanel extends JPanel {
 
     private static final int DELAY = 100;
+    private static final int MOUSE_WIDTH = 40;
+    private static final int MOUSE_HEIGHT = 40;
 
+    private int mouseX, mouseY;
     private BufferedImage backgroundImage;
+
     private GameManager gameManager;
     private FileManager fileManager;
     private Timer timer;
@@ -34,9 +40,9 @@ public class ActionPanel extends JPanel {
     private JPanel utilityPanel;
 
     public ActionPanel() {
-        fileManager = FileManager.getInstance();
         gameManager = new GameManager();
-        backgroundImage = fileManager.getImage("/images/menu/menu_bg.gif");
+
+        backgroundImage = FileManager.getInstance().getImage("/images/menu/menu_bg.gif");
 
         // set timer
         timer = new Timer(DELAY, iterateGameState -> {
@@ -81,6 +87,7 @@ public class ActionPanel extends JPanel {
         add(statsPanel, BorderLayout.NORTH);
         add(utilityPanel, BorderLayout.SOUTH);
         setPreferredSize(new Dimension(600, 600));
+        addMouseListener(new ActionPanelMouseListener());
     }
 
     public GameManager getGameManager() {
@@ -91,6 +98,16 @@ public class ActionPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(backgroundImage, 0, 0, null);
         // TODO gameManager.render(g);
+    }
+
+    private class ActionPanelMouseListener extends MouseAdapter {
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            super.mouseMoved(e);
+            mouseX = e.getX();
+            mouseY = e.getY();
+
+        }
     }
 
 }

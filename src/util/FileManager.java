@@ -4,6 +4,7 @@ import entity.GameObject;
 import logic.GameManager;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,5 +56,16 @@ public class FileManager {
             System.err.println("getImage.IllegalArgumentException: " + imagepath);
             return null;
         }
+    }
+
+    public static BufferedImage getResizedImage(BufferedImage image, int width, int height) {
+        Image tempImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        BufferedImage resultImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = resultImage.createGraphics();
+        g2d.drawImage(tempImage, 0, 0, null);
+        g2d.dispose();
+
+        return resultImage;
     }
 }

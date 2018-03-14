@@ -38,7 +38,6 @@ public class MenuButton extends JButton {
             public void mouseExited(MouseEvent e) {
                 setIcon(new ImageIcon(image));
                 setBounds(new Rectangle(buttonX-IMAGE_MARGIN, buttonY, image.getWidth(), image.getHeight()));
-
             }
         });
     }

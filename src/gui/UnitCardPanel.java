@@ -7,19 +7,20 @@ package gui;
 */
 import util.FileManager;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class UnitCardPanel extends JPanel {
-    private FileManager fileManager;
+    private static final int WIDTH = 150;
+    private static final int HEIGHT = 160;
+
     private BufferedImage unitImage;
     private BufferedImage subUnitImage;
-    private JLabel unitLabel;
-    private JLabel subUnitLabel;
     private JLabel descriptionLabel;
     private JLabel costLabel;
 
-    public UnitCardPanel(String unitDescription, int unitCost,String unitImagepath, String subUnitImagepath) {
-        fileManager = FileManager.getInstance();
+    public UnitCardPanel(String unitName, int unitCost, String unitImagepath, String subUnitImagepath) {
+        FileManager = FileManager.getInstance();
         System.out.println(unitImagepath + " " + subUnitImagepath);
         unitImage = fileManager.getImage(unitImagepath);
 
@@ -27,10 +28,15 @@ public class UnitCardPanel extends JPanel {
         if (subUnitImagepath != null)
             subUnitImage = fileManager.getImage(subUnitImagepath);
 
-        descriptionLabel = new JLabel(unitDescription);
+        descriptionLabel = new JLabel(unitName);
         costLabel = new JLabel("" + unitCost);
+
         add(descriptionLabel);
         add(costLabel);
+    }
+
+    protected void paintComponent(Graphics g) {
+
     }
 
     public void select() {

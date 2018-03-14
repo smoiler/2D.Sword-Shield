@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 public class GamePanel extends JPanel {
     private static final int DELAY = 100;
 
-    GamePanel instance;
+    private static GamePanel instance;
     private BufferedImage backgroundImage;
     private ActionPanel actionPanel;
     private UnitsPanel attackUnitsPanel;
@@ -26,7 +26,7 @@ public class GamePanel extends JPanel {
 
     private GamePanel() {
         setLayout(null);
-        backgroundImage = FileManager.getInstance().getImage("/images/menu/menu_bg.gif");
+        backgroundImage = FileManager.getInstance().getImage("/images/gamepanel/bg.png");
         gameManager = new GameManager();
         actionPanel = new ActionPanel();
         attackUnitsPanel = new UnitsPanel("Attack");
@@ -49,16 +49,18 @@ public class GamePanel extends JPanel {
         add(actionPanel);
         add(utilityPanel);
         add(statsPanel);
+
+        setPreferredSize(new Dimension(800, 600));
     }
 
-    public GamePanel getInstance() {
+    public static GamePanel getInstance() {
         if (instance == null)
             instance = new GamePanel();
         return instance;
     }
 
     protected void paintComponent(Graphics g) {
-        g.drawImage(backgroundImage, 0, 0, null);
+        g.drawImage(backgroundImage, 150, 0, null);
     }
 
     private class GamePanelMouseHandler extends MouseAdapter {

@@ -24,11 +24,6 @@ public class Tile extends GameObject{
         Point location = new Point((loc%20-1)*25+start.x, line*25+start.y);
     }
 
-    public void initTiles(){
-        for(int i = 1;i<=400;i++)
-            tileLocation(i);
-    }
-
     public int findTileLocation(Point loc){
         int tileLoc = 0;
         int x,y;

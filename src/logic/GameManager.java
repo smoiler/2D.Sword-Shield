@@ -19,6 +19,8 @@ public class GameManager {
     private ProjectileManager projectileManager;
     private ReactorManager reactorManager;
 
+    private TileManager tileManager;
+
     public GameManager() {
         attacker = new User();
         defender = new User();

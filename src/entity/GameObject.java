@@ -9,6 +9,7 @@ public abstract class GameObject {
 
     public Boundary boundary;
     private BufferedImage image;
+    public Tile tile;
 
     public Boundary getBoundary() {
         return boundary;

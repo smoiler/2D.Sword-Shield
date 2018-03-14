@@ -12,8 +12,6 @@ import util.FileManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 public class ActionPanel extends JPanel {
@@ -36,9 +34,9 @@ public class ActionPanel extends JPanel {
     private JPanel utilityPanel;
 
     public ActionPanel() {
-        fileManager = new FileManager();
+        fileManager = FileManager.getInstance();
         gameManager = new GameManager();
-        backgroundImage = fileManager.getImage("/images/menu_bg.jpg");
+        backgroundImage = fileManager.getImage("/images/menu/menu_bg.gif");
 
         // set timer
         timer = new Timer(DELAY, iterateGameState -> {

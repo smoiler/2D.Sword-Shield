@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUIManager {
+    public static int WIDTH = 800;
+    public static int HEIGHT = 600;
 
     private static GUIManager instance;
 
     private JFrame frame;
-    JPanel currentPanel;
     private MenuPanel menuPanel;
     private LoadPanel loadPanel;
     private CreditsPanel creditsPanel;
@@ -26,7 +27,10 @@ public class GUIManager {
         frame = new JFrame("Sword&Shield: A Space Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setSize(new Dimension(WIDTH, HEIGHT));
+        frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
     public static GUIManager getInstance() {
@@ -38,23 +42,29 @@ public class GUIManager {
     public void showMenuPanel() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(menuPanel);
-        frame.pack();    }
+        frame.pack();
+        frame.repaint();
+    }
 
     public void showLoadPanel() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(loadPanel);
-        frame.pack();    }
+        frame.pack();
+        frame.repaint();
+    }
 
     public void showCreditsPanel() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(creditsPanel);
         frame.pack();
+        frame.repaint();
     }
 
     public void showGamePanel() {
         frame.getContentPane().removeAll();
         frame.getContentPane().add(gamePanel);
         frame.pack();
+        frame.repaint();
     }
 
 }

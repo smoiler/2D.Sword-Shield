@@ -10,15 +10,23 @@ import java.util.ArrayList;
 
 public class FileManager {
 
+    private static FileManager instance;
+
+    private FileManager() {}
+
+    public static FileManager getInstance() {
+        if (instance == null)
+            instance = new FileManager();
+        return instance;
+    }
+
+    // TODO will be implemented after iteration I
     public static ArrayList<String> getSavedGames() {
         ArrayList<String> savedGames = new ArrayList<>();
-        savedGames.add("dummysavedgame 1");
-        savedGames.add("dummysavedgame 2");
-        savedGames.add("dummysavedgame 3");
-        savedGames.add("dummysavedgame 4");
         return savedGames;
     }
 
+    // TODO will be implemented after iteration I
     public void removeSavedGame(int index) {
 
     }
@@ -26,9 +34,11 @@ public class FileManager {
     // TODO will be implemented after iteration I
     public GameManager loadGame(int loadGameIndex) {
         GameManager gameManager = new GameManager();
+
         return gameManager;
     }
 
+    // TODO will be implemented after iteration I
     public void saveGame(GameManager gameManager) {
 
     }
@@ -39,7 +49,10 @@ public class FileManager {
             image = ImageIO.read(getClass().getResourceAsStream(imagepath));
             return image;
         } catch (IOException exc) {
-            exc.printStackTrace();
+            System.err.println("getImage.IOException: " + imagepath);
+            return null;
+        } catch (IllegalArgumentException exc) {
+            System.err.println("getImage.IllegalArgumentException: " + imagepath);
             return null;
         }
     }

@@ -13,20 +13,22 @@ public class UnitCardPanel extends JPanel {
     private FileManager fileManager;
     private BufferedImage unitImage;
     private BufferedImage subUnitImage;
+    private JLabel unitLabel;
+    private JLabel subUnitLabel;
     private JLabel descriptionLabel;
     private JLabel costLabel;
 
     public UnitCardPanel(String unitDescription, int unitCost,String unitImagepath, String subUnitImagepath) {
-        fileManager = new FileManager();
+        fileManager = FileManager.getInstance();
         System.out.println(unitImagepath + " " + subUnitImagepath);
         unitImage = fileManager.getImage(unitImagepath);
 
         // reactor doesn't have a sub unit / a unit that the reactor produces
         if (subUnitImagepath != null)
             subUnitImage = fileManager.getImage(subUnitImagepath);
+
         descriptionLabel = new JLabel(unitDescription);
         costLabel = new JLabel("" + unitCost);
-
         add(descriptionLabel);
         add(costLabel);
     }

@@ -4,8 +4,6 @@ import util.FileManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 public class CreditsPanel extends JPanel {
@@ -18,8 +16,8 @@ public class CreditsPanel extends JPanel {
     private final static String[] names = {"Mehmet Enes Keleş", "Akın Berkay Bal", "Eren Aslantürk", "Sadık Said Kasap"};
 
     public CreditsPanel() {
-        fileManager = new FileManager();
-        backgroundImage = fileManager.getImage("/images/menu_bg.jpg");
+        fileManager = FileManager.getInstance();
+        backgroundImage = fileManager.getImage("/images/menu/menu_bg.gif");
         creditsTitle = new JLabel("Credits");
         backButton = new JButton("Back");
         nameLabels = new JLabel[names.length];
@@ -30,13 +28,31 @@ public class CreditsPanel extends JPanel {
         for (int i = 0; i < names.length; ++i)
             nameLabels[i] = new JLabel(names[i]);
 
-        add(creditsTitle);
+        JPanel panel = new JPanel();
+        GroupLayout layout = new GroupLayout(panel);
+        panel.setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
 
-        for(JLabel label : nameLabels)
-            add(label);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(nameLabels[0])
+                        .addComponent(nameLabels[1])
+                        .addComponent(nameLabels[2])
+                        .addComponent(nameLabels[3])
+        );
 
-        add(backButton);
-
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addComponent(nameLabels[0])
+                        .addComponent(nameLabels[1])
+                        .addComponent(nameLabels[2])
+                        .addComponent(nameLabels[3])
+        );
+        setLayout(new BorderLayout());
+        add(creditsTitle, BorderLayout.NORTH);
+        add(panel, BorderLayout.CENTER);
+        add(backButton, BorderLayout.SOUTH);
         setPreferredSize(new Dimension(800, 600));
     }
 

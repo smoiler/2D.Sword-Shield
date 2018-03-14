@@ -22,7 +22,6 @@ public class FactoryFactory {
 
     public Factory createFactory(int type, Point point) {
         Factory factory = new Factory();
-
         return factory;
     }
 }

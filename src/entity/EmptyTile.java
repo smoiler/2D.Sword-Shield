@@ -1,6 +1,6 @@
 package entity;
 
-public class EmptyTile extends GameObject{
+public class EmptyTile extends Tile{
 
     private int status;
 

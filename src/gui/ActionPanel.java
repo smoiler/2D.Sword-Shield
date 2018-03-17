@@ -12,85 +12,38 @@ import util.FileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 public class ActionPanel extends JPanel {
 
-    private static final int DELAY = 100;
+    // TODO a custom cursor for the game might be added after iteration I
+    // private static final int MOUSE_WIDTH = 40;
+    // private static final int MOUSE_HEIGHT = 40;
 
-    private BufferedImage backgroundImage;
-    private GameManager gameManager;
-    private FileManager fileManager;
-    private Timer timer;
-    private JButton turnButton;
-    private JButton pauseButton;
-    private JLabel attackerScore;
-    private JLabel defenderScore;
-    private JLabel attackerGold;
-    private JLabel defenderGold;
-    private JLabel timeLeft;
-    private JButton saveButton;
-    private JPanel statsPanel;
-    private JPanel utilityPanel;
+    private int mouseX, mouseY;
+
 
     public ActionPanel() {
-        fileManager = FileManager.getInstance();
-        gameManager = new GameManager();
-        backgroundImage = fileManager.getImage("/images/menu/menu_bg.gif");
-
-        // set timer
-        timer = new Timer(DELAY, iterateGameState -> {
-            gameManager.update();
-
-            attackerScore.setText("" + gameManager.getAttackerScore());
-            defenderScore.setText("" + gameManager.getDefenderScore());
-            attackerGold.setText("" + gameManager.getAttackerGold());
-            defenderGold.setText("" + gameManager.getDefenderGold());
-            timeLeft.setText("" + gameManager.getTimeLeft());
-        });
-        timer.start();
-
-        attackerScore = new JLabel("" + gameManager.getAttackerScore());
-        defenderScore = new JLabel("" + gameManager.getDefenderScore());
-        attackerGold = new JLabel("" + gameManager.getAttackerGold());
-        defenderGold = new JLabel("" + gameManager.getDefenderGold());
-        timeLeft = new JLabel("" + gameManager.getTimeLeft());
-
-        // panel at the top
-        statsPanel = new JPanel();
-        statsPanel.setLayout(new FlowLayout());
-        statsPanel.add(attackerScore);
-        statsPanel.add(attackerGold);
-        statsPanel.add(timeLeft);
-        statsPanel.add(defenderGold);
-        statsPanel.add(defenderScore);
-
-
-        turnButton = new JButton(">");
-        pauseButton = new JButton("II");
-        saveButton = new JButton("Save");
-
-        // panel at the bottom
-        utilityPanel = new JPanel();
-        utilityPanel.setLayout(new FlowLayout());
-        utilityPanel.add(pauseButton);
-        utilityPanel.add(turnButton);
-        utilityPanel.add(saveButton);
-
-        setLayout(new BorderLayout());
-        add(statsPanel, BorderLayout.NORTH);
-        add(utilityPanel, BorderLayout.SOUTH);
-        setPreferredSize(new Dimension(600, 600));
-    }
-
-    public GameManager getGameManager() {
-        return gameManager;
+        setLayout(null);
+        setOpaque(false);
+        setPreferredSize(new Dimension(500, 600));
+        addMouseListener(new ActionPanelMouseListener());
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(backgroundImage, 0, 0, null);
         // TODO gameManager.render(g);
+    }
+
+    private class ActionPanelMouseListener extends MouseAdapter {
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            super.mouseMoved(e);
+            mouseX = e.getX();
+            mouseY = e.getY();
+        }
     }
 
 }

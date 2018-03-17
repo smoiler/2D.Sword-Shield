@@ -14,8 +14,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class UnitsPanel extends JPanel {
-    private final int HEIGHT = 600;
-    private final int WIDTH = 150;
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 150;
 
     private UnitCardPanel[] unitCards;
     private int selected;
@@ -25,7 +25,7 @@ public class UnitsPanel extends JPanel {
         setLayout(null);
 
         selected = -1;
-
+        show = true;
         initUnitCards(type);
 
         for (int i = 0; i < unitCards.length; ++i)
@@ -33,6 +33,29 @@ public class UnitsPanel extends JPanel {
 
         for (int i = 0; i < unitCards.length; ++i)
             add(unitCards[i]);
+
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                int mouseY = e.getY();
+                int itemNo = mouseY / UnitCardPanel.HEIGHT;
+                if (show && itemNo < unitCards.length) {
+                    if (selected == itemNo) {
+                        unitCards[itemNo].setSelected(false);
+                        selected = -1;
+                    }
+                    else {
+                        if (selected != -1) {
+                            unitCards[selected].setSelected(false);
+                            unitCards[selected].repaint();
+                        }
+                        unitCards[itemNo].setSelected(true);
+                        selected = itemNo;
+                    }
+                    unitCards[itemNo].repaint();
+                }
+            }
+        });
 
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -71,6 +94,10 @@ public class UnitsPanel extends JPanel {
                 unitCards[i] = new UnitCardPanel(turretName, "dummynazor", cost, unitImagepath, subUnitImagepath);
             }
         }
+    }
+
+    public void setShow(boolean show) {
+        this.show = show;
     }
 
     public int getSelected() {

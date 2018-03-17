@@ -22,7 +22,7 @@ public class GUIManager {
         menuPanel = new MenuPanel();
         loadPanel = new LoadPanel();
         creditsPanel = new CreditsPanel();
-        gamePanel = new GamePanel();
+        gamePanel = GamePanel.getInstance();
 
         frame = new JFrame("Sword&Shield: A Space Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

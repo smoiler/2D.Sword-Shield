@@ -10,6 +10,10 @@ public class Projectile extends GameObject{
     private double damage;
     private Boundary target;
 
+    public Projectile() {
+        super();
+    }
+
     public double getRange() {
         return range;
     }

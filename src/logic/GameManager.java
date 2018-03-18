@@ -32,7 +32,7 @@ public class GameManager {
         timeLeft = 0;
         turnCount = 0;
 
-        initObjects();
+        initGameObjects();
     }
 
     public static GameManager getInstance() {
@@ -41,7 +41,7 @@ public class GameManager {
         return instance;
     }
 
-    private void initObjects() {
+    private void initGameObjects() {
         attacker = new User();
         defender = new User();
 
@@ -69,8 +69,26 @@ public class GameManager {
 
     }
 
+    // TODO will be implemented
+    public void update() {
+        spaceshipManager.moveAll();
+    }
+
+    public void render(Graphics g) {
+        tileManager.render(g);
+        factoryManager.render(g);
+        projectileManager.render(g);
+        reactorManager.render(g);
+        spaceshipManager.render(g);
+        turretManager.render(g);
+    }
+
     public boolean checkGameOver() {
         return turnCount > MAX_TURNS;
+    }
+
+    public boolean getGameOver() {
+        return gameOver;
     }
 
     public int getDefenderScore() {
@@ -96,19 +114,6 @@ public class GameManager {
     public String getCurrentTurn() {
         if (currentTurn)
             return "Defender";
-
         return "Attacker";
-    }
-    public void update() {
-        spaceshipManager.moveAll();
-    }
-
-    public void render(Graphics g) {
-        tileManager.render(g);
-        factoryManager.render(g);
-        projectileManager.render(g);
-        reactorManager.render(g);
-        spaceshipManager.render(g);
-        turretManager.render(g);
     }
 }

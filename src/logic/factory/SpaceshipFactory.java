@@ -20,7 +20,7 @@ public class SpaceshipFactory {
     private static final int[] WIDTHS = {50, 50, 50, 50};
     private static final int[] HEIGHTS = {40, 40, 40, 40};
 
-    public Spaceship createSpaceship(int type, int x, int y) {
+    public Spaceship create(int type, int x, int y) {
         Spaceship spaceship = new Spaceship();
 
         // prepare the corresponding image

@@ -24,7 +24,7 @@ import java.awt.*;
 */
 
 public class TileManager {
-    TileFactory tileFactory;
+    private TileFactory tileFactory;
     private ArrayList<Tile> attackerTiles;
     private ArrayList<Tile> defenderTiles;
     private ArrayList<Tile> roadTiles;
@@ -42,28 +42,28 @@ public class TileManager {
     }
 
     // initialize defender tiles
-    public void initDefenderTiles() {
+    private void initDefenderTiles() {
         for (int i = 300; i < 500; i += TileFactory.WIDTH) {
             for (int j = 100; j < 200; j += TileFactory.HEIGHT)
-                defenderTiles.add(tileFactory.createTile(0, i, j));
+                defenderTiles.add(tileFactory.create(0, i, j));
             for (int j = 300; j < 400; j+= TileFactory.HEIGHT)
-                defenderTiles.add(tileFactory.createTile(0, i, j));
+                defenderTiles.add(tileFactory.create(0, i, j));
         }
     }
 
     // initialize attacker tiles
-    public void initAttackerTiles(){
+    private void initAttackerTiles(){
         for (int i = 0; i < 200; i += TileFactory.WIDTH) {
             for (int j = 100; j < 200; j += TileFactory.HEIGHT)
-                attackerTiles.add(tileFactory.createTile(0, i, j));
+                attackerTiles.add(tileFactory.create(0, i, j));
             for (int j = 300; j < 400; j+= TileFactory.HEIGHT)
-                attackerTiles.add(tileFactory.createTile(0, i, j));
+                attackerTiles.add(tileFactory.create(0, i, j));
         }
     }
 
-    public void initRoadTiles() {
+    private void initRoadTiles() {
         for (int j = 0; j < 500; j+= TileFactory.HEIGHT)
-            roadTiles.add(tileFactory.createTile(1, j, 225));
+            roadTiles.add(tileFactory.create(1, j, 225));
     }
 
     public void removeTile(int x, int y) {
@@ -90,15 +90,17 @@ public class TileManager {
     }
 
     public void render(Graphics g) {
-        System.out.println("aa");
-        for (Tile tile : attackerTiles)
-            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        if (attackerTiles != null)
+            for (Tile tile : attackerTiles)
+                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
 
-        for (Tile tile : defenderTiles)
-            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        if (defenderTiles != null)
+            for (Tile tile : defenderTiles)
+                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
 
-        for (Tile tile: roadTiles)
-            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        if (roadTiles != null)
+            for (Tile tile: roadTiles)
+                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
     }
 
 }

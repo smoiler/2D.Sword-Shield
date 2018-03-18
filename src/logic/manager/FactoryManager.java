@@ -13,10 +13,13 @@ public class FactoryManager {
     private ArrayList<Factory> factories;
     private FactoryFactory factoryFactory;
 
-    public void addFactory(int type, int x, int y) {
+    public FactoryManager() {
+        factories = new ArrayList<>();
+        factoryFactory = new FactoryFactory();
+    }
+    public void add(int type, int x, int y) {
 
     }
-
 
     public ArrayList<GameObject> produceSpaceships() {
         ArrayList<GameObject> spaceships = new ArrayList<>();
@@ -29,7 +32,10 @@ public class FactoryManager {
     }
 
     public void render(Graphics g) {
-
+        if (factories != null)
+            for (Factory factory: factories) {
+                g.drawImage(factory.getImage(), factory.getX(), factory.getY(), null);
+            }
     }
 
 }

@@ -14,9 +14,9 @@ public class ReactorFactory {
     private static final int WIDTH = 55;
     private static final int HEIGHT = 100;
 
-    public Reactor createReactor(int x, int y) {
+    public Reactor create(int x, int y) {
         Reactor reactor = new Reactor();
-
+        // TODO will be implemented
         return reactor;
     }
 

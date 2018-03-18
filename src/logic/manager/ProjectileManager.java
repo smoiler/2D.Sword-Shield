@@ -27,7 +27,8 @@ public class ProjectileManager {
     }
 
     public void render(Graphics g) {
-        for (Projectile projectile : projectiles)
-            g.drawImage(projectile.getImage(), projectile.getX(), projectile.getY(), null);
+        if (projectiles != null)
+            for (Projectile projectile : projectiles)
+                g.drawImage(projectile.getImage(), projectile.getX(), projectile.getY(), null);
     }
 }

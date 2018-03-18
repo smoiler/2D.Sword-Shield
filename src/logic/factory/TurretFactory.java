@@ -20,8 +20,9 @@ public class TurretFactory {
     private static final int[] WIDTHS = {50, 75, 85, 80};
     private static final int[] HEIGHTS = {50, 75, 85, 90};
 
-    public Turret createTurret(int type, int x, int y) {
+    public Turret create(int type, int x, int y) {
         Turret turret = new Turret();
+        // TODO will be implemented
         return turret;
     }
 }

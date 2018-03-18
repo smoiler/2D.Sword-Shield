@@ -20,8 +20,9 @@ public class FactoryFactory {
     private static final int[] WIDTHS = {100, 75, 50, 25};
     private static final int[] HEIGHTS = {100, 75, 45, 50};
 
-    public Factory createFactory(int type, int x, int y) {
+    public Factory create(int type, int x, int y) {
         Factory factory = new Factory();
+        // TODO will be implemented
         return factory;
     }
 }

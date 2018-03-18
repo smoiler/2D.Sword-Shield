@@ -7,13 +7,19 @@ import logic.factory.ReactorFactory;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ReactorManager {
 
-    private ArrayList<Factory> reactors;
+    private ArrayList<Reactor> reactors;
     private ReactorFactory reactorFactory;
 
-    public void addReactor(int type, int x, int y) {
+    public ReactorManager() {
+        reactors = new ArrayList<>();
+        reactorFactory = new ReactorFactory();
+    }
+
+    public void add(int type, int x, int y) {
 
     }
 
@@ -23,6 +29,8 @@ public class ReactorManager {
     }
 
     public void render(Graphics g) {
-
+        if (reactors != null)
+            for (Reactor reactor: reactors)
+                g.drawImage(reactor.getImage(), reactor.getX(), reactor.getY(), null);
     }
 }

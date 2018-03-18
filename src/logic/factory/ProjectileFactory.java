@@ -17,9 +17,9 @@ public class ProjectileFactory {
     private static final int[] WIDTHS = {55, 66, 35, 103};
     private static final int[] HEIGHTS = {55, 45, 35, 105};
 
-    public Projectile createProjectile(int type, int x, int y) {
+    public Projectile create(int type, int x, int y) {
         Projectile projectile = new Projectile();
-
+        // TODO will be implemented
         return projectile;
     }
 }

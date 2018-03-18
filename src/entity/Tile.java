@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class Tile extends GameObject{
     public Tile(){
+        super();
     }
 }
 

@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 public class FactoryManager {
 
-    private ArrayList<GameObject> factories;
+    private ArrayList<Factory> factories;
     private FactoryFactory factoryFactory;
 
-    public void addFactory(int type, Point point) {
+    public void addFactory(int type, int x, int y) {
 
     }
 
@@ -21,7 +21,7 @@ public class FactoryManager {
     public ArrayList<GameObject> produceSpaceships() {
         ArrayList<GameObject> spaceships = new ArrayList<>();
 
-        for (GameObject factory: factories) {
+        for (Factory factory: factories) {
 
         }
 

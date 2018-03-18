@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class ReactorFactory {
     public static final String IMAGEPATH = "/images/reactor/reactor.png";
-    public static final String DESCRIPTION = "Reactor";
+    public static final String NAME = "Reactor";
     public static final int COST = 5;
 
     private static final int INCOME_RATE = 5;
@@ -14,7 +14,7 @@ public class ReactorFactory {
     private static final int WIDTH = 55;
     private static final int HEIGHT = 100;
 
-    public Reactor createReactor(Point point) {
+    public Reactor createReactor(int x, int y) {
         Reactor reactor = new Reactor();
 
         return reactor;

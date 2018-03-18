@@ -1,5 +1,6 @@
 package logic.manager;
 
+import entity.Factory;
 import entity.GameObject;
 import entity.Reactor;
 import logic.factory.ReactorFactory;
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 
 public class ReactorManager {
 
-    private ArrayList<GameObject> reactors;
+    private ArrayList<Factory> reactors;
     private ReactorFactory reactorFactory;
 
-    public void addReactor(int type, Point point) {
+    public void addReactor(int type, int x, int y) {
 
     }
 

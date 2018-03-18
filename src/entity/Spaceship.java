@@ -4,17 +4,17 @@ import util.Boundary;
 
 public class Spaceship extends GameObject{
 
-    private double speed;
+    private int speed;
     private Boundary boundary;
     private double armor;
     private double hp;
     private int reward;
 
-    public double getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
@@ -23,6 +23,7 @@ public class Spaceship extends GameObject{
     }
 
     public void setBoundary(Boundary boundary) {
+        System.out.println("boundary set");
         this.boundary = boundary;
     }
 

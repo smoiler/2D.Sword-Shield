@@ -10,8 +10,8 @@ public class FactoryFactory {
                                                 "/images/factory/factory3.png",
                                                 "/images/factory/factory4.png"};
 
-    public static final String[] DESCRIPTIONS = {"Factory Number I",
-                                                 "Factory Number II",
+    public static final String[] NAMES = {"Factory Number I",
+                                                "Factory Number II",
                                                  "Factory Number III",
                                                  "Factory Number IV"};
     public static final int[] COSTS = {100, 200, 300, 400};
@@ -20,7 +20,7 @@ public class FactoryFactory {
     private static final int[] WIDTHS = {100, 75, 50, 25};
     private static final int[] HEIGHTS = {100, 75, 45, 50};
 
-    public Factory createFactory(int type, Point point) {
+    public Factory createFactory(int type, int x, int y) {
         Factory factory = new Factory();
         return factory;
     }

@@ -34,7 +34,7 @@ public class FileManager {
 
     // TODO will be implemented after iteration I
     public GameManager loadGame(int loadGameIndex) {
-        GameManager gameManager = new GameManager();
+        GameManager gameManager = GameManager.getInstance();
 
         return gameManager;
     }
@@ -65,7 +65,6 @@ public class FileManager {
         Graphics2D g2d = resultImage.createGraphics();
         g2d.drawImage(tempImage, 0, 0, null);
         g2d.dispose();
-
         return resultImage;
     }
 }

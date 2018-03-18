@@ -65,28 +65,28 @@ public class UnitsPanel extends JPanel {
     private void initUnitCards(String type) {
         // Initialize UnitsPanel with attack units
         if (type == "Attack") {
-            int numOfFactories = FactoryFactory.DESCRIPTIONS.length;
+            int numOfFactories = FactoryFactory.NAMES.length;
             // +1 for 'Reactor' unit type
             unitCards = new UnitCardPanel[numOfFactories + 1];
 
             for (int i = 0; i < numOfFactories; ++i) {
-                String factoryName = FactoryFactory.DESCRIPTIONS[i];
+                String factoryName = FactoryFactory.NAMES[i];
                 int cost = FactoryFactory.COSTS[i];
                 String unitImagepath = FactoryFactory.IMAGEPATHS[i];
                 String subUnitImagepath = SpaceshipFactory.IMAGEPATHS[i];
                 unitCards[i] = new UnitCardPanel(factoryName, "dummynazor", cost, unitImagepath, subUnitImagepath);
             }
-            String reactorName = ReactorFactory.DESCRIPTION;
+            String reactorName = ReactorFactory.NAME;
             int cost = ReactorFactory.COST;
             String unitImagepath = ReactorFactory.IMAGEPATH;
             unitCards[unitCards.length - 1] = new UnitCardPanel(reactorName, null, cost, unitImagepath, null);
 
         } else { // Initialize UnitsPanel with defense units
-            int numOfTurrets = TurretFactory.DESCRIPTIONS.length;
+            int numOfTurrets = TurretFactory.NAMES.length;
             unitCards = new UnitCardPanel[numOfTurrets];
 
             for (int i = 0; i < unitCards.length; ++i) {
-                String turretName = TurretFactory.DESCRIPTIONS[i];
+                String turretName = TurretFactory.NAMES[i];
                 int cost = TurretFactory.COSTS[i];
                 String unitImagepath = TurretFactory.IMAGEPATHS[i];
                 String subUnitImagepath = ProjectileFactory.IMAGEPATHS[i];

@@ -10,7 +10,7 @@ public class TurretFactory {
                                                 "/images/turret/turret3.png",
                                                 "/images/turret/turret4.png"};
 
-    public static final String[] DESCRIPTIONS = {"Turret Number I",
+    public static final String[] NAMES = {"Turret Number I",
                                                  "Turret Number II",
                                                  "Turret Number III",
                                                  "Turret Number IV"};
@@ -20,7 +20,7 @@ public class TurretFactory {
     private static final int[] WIDTHS = {50, 75, 85, 80};
     private static final int[] HEIGHTS = {50, 75, 85, 90};
 
-    public Turret createTurret(int type, Point point) {
+    public Turret createTurret(int type, int x, int y) {
         Turret turret = new Turret();
         return turret;
     }

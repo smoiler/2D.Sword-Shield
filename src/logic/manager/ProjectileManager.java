@@ -9,24 +9,25 @@ import java.util.ArrayList;
 
 public class ProjectileManager {
 
-    private ArrayList<GameObject> projectiles;
+    private ArrayList<Projectile> projectiles;
     private ProjectileFactory projectileFactory;
 
+    public ProjectileManager() {
+        projectiles = new ArrayList<>();
+        projectileFactory = new ProjectileFactory();
+    }
     public void moveAll() {
-        for (GameObject projectile : projectiles) {
-            /**
-             *
-             *  Move'em
-             *
-             **/
+        for (Projectile projectile : projectiles) {
+
         }
     }
 
+    // to remove projectiles that are out of range or hit to their target
     public void cleanDeads() {
-
     }
 
     public void render(Graphics g) {
-
+        for (Projectile projectile : projectiles)
+            g.drawImage(projectile.getImage(), projectile.getX(), projectile.getY(), null);
     }
 }

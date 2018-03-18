@@ -2,7 +2,6 @@ package logic.manager;
 
 import entity.Spaceship;
 import logic.factory.SpaceshipFactory;
-
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -24,17 +23,16 @@ public class SpaceshipManager {
         spaceships.add(spaceshipFactory.create(type, x, y));
     }
 
+    // moves all spaceships
     public void moveAll() {
-        if (spaceships != null)
-            for (Spaceship spaceship : spaceships) {
-                int newX = spaceship.getX() + spaceship.getSpeed();
-                spaceship.setX(newX);
-            }
+        for (Spaceship spaceship : spaceships) {
+            int newX = spaceship.getX() + spaceship.getSpeed();
+            spaceship.setX(newX);
+        }
     }
 
     public void render(Graphics g) {
-        if (spaceships != null)
-            for (Spaceship spaceship : spaceships)
-                g.drawImage(spaceship.getImage(), spaceship.getX(), spaceship.getY(), null);
+        for (Spaceship spaceship : spaceships)
+            g.drawImage(spaceship.getImage(), spaceship.getX(), spaceship.getY(), null);
     }
 }

@@ -18,24 +18,19 @@ public class FactoryManager {
         factoryFactory = new FactoryFactory();
     }
     public void add(int type, int x, int y) {
-
+        // TODO will be implemented after iteration I
     }
 
     public ArrayList<GameObject> produceSpaceships() {
         ArrayList<GameObject> spaceships = new ArrayList<>();
-
-        for (Factory factory: factories) {
-
-        }
-
+        // TODO will be implemented after iteration I
         return spaceships;
     }
 
     public void render(Graphics g) {
-        if (factories != null)
-            for (Factory factory: factories) {
-                g.drawImage(factory.getImage(), factory.getX(), factory.getY(), null);
-            }
+        for (Factory factory: factories)
+            g.drawImage(factory.getImage(), factory.getX(), factory.getY(), null);
+
     }
 
 }

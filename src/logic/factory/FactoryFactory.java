@@ -1,10 +1,11 @@
 package logic.factory;
 
 import entity.Factory;
-
-import java.awt.*;
+import util.FileManager;
 
 public class FactoryFactory {
+
+    // Factory properties
     public static final String[] IMAGEPATHS =  {"/images/factory/factory1.png",
                                                 "/images/factory/factory2.png",
                                                 "/images/factory/factory3.png",
@@ -15,10 +16,16 @@ public class FactoryFactory {
                                                  "Factory Number III",
                                                  "Factory Number IV"};
     public static final int[] COSTS = {100, 200, 300, 400};
-
     private static final int[] PRODUCTION_RATES = {1, 2, 3, 4};
     private static final int[] WIDTHS = {100, 75, 50, 25};
     private static final int[] HEIGHTS = {100, 75, 45, 50};
+
+    // FileManager
+    FileManager fileManager;
+
+    public FactoryFactory() {
+        fileManager = FileManager.getInstance();
+    }
 
     public Factory create(int type, int x, int y) {
         Factory factory = new Factory();

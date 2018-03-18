@@ -61,8 +61,9 @@ public class GamePanel extends JPanel {
         g.drawImage(backgroundImage, 150, 0, null);
     }
 
+
+    // TODO will be implemented after iteration I
     private class GamePanelMouseHandler extends MouseAdapter {
-        @Override
         public void mousePressed(MouseEvent e) {
              int mouseX = e.getX();
              int mouseY = e.getY();

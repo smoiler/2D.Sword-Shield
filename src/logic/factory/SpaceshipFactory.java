@@ -3,12 +3,12 @@ package logic.factory;
 import entity.Spaceship;
 import util.Boundary;
 import util.FileManager;
-
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+
 
 public class SpaceshipFactory {
+
+    // Spaceship properties
     public static final String[] IMAGEPATHS =  {"/images/spaceship/spaceship1.png",
                                                 "/images/spaceship/spaceship2.png",
                                                 "/images/spaceship/spaceship3.png",
@@ -20,12 +20,17 @@ public class SpaceshipFactory {
     private static final int[] WIDTHS = {50, 50, 50, 50};
     private static final int[] HEIGHTS = {40, 40, 40, 40};
 
+    // FileManager
+    FileManager fileManager;
+
+    public SpaceshipFactory() {
+        fileManager = FileManager.getInstance();
+    }
     public Spaceship create(int type, int x, int y) {
         Spaceship spaceship = new Spaceship();
-
         // prepare the corresponding image
-        BufferedImage image = FileManager.getInstance().getImage(IMAGEPATHS[type]);
-        image = FileManager.getInstance().getResizedImage(image, WIDTHS[type], HEIGHTS[type]);
+        BufferedImage image = fileManager.getImage(IMAGEPATHS[type]);
+        image = fileManager.getResizedImage(image, WIDTHS[type], HEIGHTS[type]);
 
         // initialize properties
         spaceship.setImage(image);

@@ -20,25 +20,20 @@ public class TurretManager {
 
     // adds a turret of the given type at the given location
     public void add(int type, int x, int y) {
-
+        // TODO will be implemented after iteration I
     }
 
     // returns fired projectiles on this iteration
     public ArrayList<GameObject> fireProjectiles() {
         ArrayList<GameObject> projectiles = new ArrayList<>();
-
-        for (Turret turret : turrets) {
-
-        }
-
+        // TODO will be implemented after iteration I
         return projectiles;
     }
 
     public void render(Graphics g) {
-        if (turrets != null)
-            for (Turret turret: turrets) {
-                g.drawImage(turret.getImage(), turret.getX(), turret.getY(), null);
-            }
+        for (Turret turret: turrets) {
+            g.drawImage(turret.getImage(), turret.getX(), turret.getY(), null);
+        }
     }
 
 }

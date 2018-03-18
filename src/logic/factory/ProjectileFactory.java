@@ -1,10 +1,11 @@
 package logic.factory;
 
 import entity.Projectile;
-
-import java.awt.*;
+import util.FileManager;
 
 public class ProjectileFactory {
+
+    // Projectile properties
     public static final String[] IMAGEPATHS =  {"/images/projectile/projectile1.png",
                                                 "/images/projectile/projectile2.png",
                                                 "/images/projectile/projectile3.png",
@@ -16,6 +17,13 @@ public class ProjectileFactory {
     private static final double[] RANGES = {45, 44, 23.25, 45.5};
     private static final int[] WIDTHS = {55, 66, 35, 103};
     private static final int[] HEIGHTS = {55, 45, 35, 105};
+
+    // FileManager
+    FileManager fileManager;
+
+    public ProjectileFactory() {
+        fileManager = FileManager.getInstance();
+    }
 
     public Projectile create(int type, int x, int y) {
         Projectile projectile = new Projectile();

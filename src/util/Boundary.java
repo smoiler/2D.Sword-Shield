@@ -1,7 +1,5 @@
 package util;
 
-import java.awt.*;
-
 public class Boundary {
     private int x;
     private int y;

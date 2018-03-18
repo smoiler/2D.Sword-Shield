@@ -67,7 +67,7 @@ public class TileManager {
     }
 
     public void removeTile(int x, int y) {
-
+        // TODO will be implemented after iteration I
     }
 
     public Tile clickedTile(int x, int y) {
@@ -90,17 +90,14 @@ public class TileManager {
     }
 
     public void render(Graphics g) {
-        if (attackerTiles != null)
-            for (Tile tile : attackerTiles)
-                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        for (Tile tile : attackerTiles)
+            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
 
-        if (defenderTiles != null)
-            for (Tile tile : defenderTiles)
-                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        for (Tile tile : defenderTiles)
+            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
 
-        if (roadTiles != null)
-            for (Tile tile: roadTiles)
-                g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
+        for (Tile tile: roadTiles)
+            g.drawImage(tile.getImage(), tile.getX(), tile.getY(), null);
     }
 
 }

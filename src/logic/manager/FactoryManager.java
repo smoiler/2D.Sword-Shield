@@ -10,25 +10,26 @@ import java.util.ArrayList;
 
 public class FactoryManager {
 
-    private ArrayList<GameObject> factories;
+    private ArrayList<Factory> factories;
     private FactoryFactory factoryFactory;
 
-    public void addFactory(int type, Point point) {
-
+    public FactoryManager() {
+        factories = new ArrayList<>();
+        factoryFactory = new FactoryFactory();
     }
-
+    public void add(int type, int x, int y) {
+        // TODO will be implemented after iteration I
+    }
 
     public ArrayList<GameObject> produceSpaceships() {
         ArrayList<GameObject> spaceships = new ArrayList<>();
-
-        for (GameObject factory: factories) {
-
-        }
-
+        // TODO will be implemented after iteration I
         return spaceships;
     }
 
     public void render(Graphics g) {
+        for (Factory factory: factories)
+            g.drawImage(factory.getImage(), factory.getX(), factory.getY(), null);
 
     }
 

@@ -5,18 +5,12 @@ import util.Boundary;
 import java.awt.*;
 
 public class Tile extends GameObject{
-
-
-    private Point start = new Point(150,200);
-    private final int WIDTH = 25;
-    private final int HEIGHT = 25;
-
-
     public Tile(){
-        boundary = new Boundary();
-        boundary.setWidth(WIDTH);
-        boundary.setHeight(HEIGHT);
+        super();
     }
+}
+
+/**
     public void tileLocation(int loc){
         if(loc>400 || loc<=0)
             return;
@@ -35,4 +29,4 @@ public class Tile extends GameObject{
         tileLoc = x+line*20;
         return tileLoc;
     }
-}
+ */

@@ -13,7 +13,6 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 public class GamePanel extends JPanel {
-    private static final int DELAY = 100;
 
     private static GamePanel instance;
     private BufferedImage backgroundImage;
@@ -23,13 +22,14 @@ public class GamePanel extends JPanel {
     private StatsPanel statsPanel;
     private UtilityPanel utilityPanel;
     private GameManager gameManager;
-    private Timer timer;
 
     private GamePanel() {
         setLayout(null);
         backgroundImage = FileManager.getInstance().getImage("/images/gamepanel/bg.png");
-        gameManager = new GameManager();
+
+        gameManager = GameManager.getInstance();
         actionPanel = new ActionPanel();
+        actionPanel.setBounds(new Rectangle(150, 50, ActionPanel.WIDTH, ActionPanel.HEIGHT));
         attackUnitsPanel = new UnitsPanel("Attack");
         attackUnitsPanel.setBounds(new Rectangle(0, 0, UnitsPanel.WIDTH, UnitsPanel.HEIGHT));
         defenseUnitsPanel = new UnitsPanel("Defense");
@@ -39,12 +39,8 @@ public class GamePanel extends JPanel {
         utilityPanel = new UtilityPanel();
         utilityPanel.setBounds(200, 550, UtilityPanel.WIDTH, UtilityPanel.HEIGHT);
 
-        // set timer
-        timer = new Timer(DELAY, iterateGameState -> {
-            //gameManager.update();
-        });
-        timer.start();
-        addMouseListener(new GamePanelMouseHandler());
+
+        // addMouseListener(new GamePanelMouseHandler());
         add(attackUnitsPanel);
         add(defenseUnitsPanel);
         add(actionPanel);
@@ -60,17 +56,23 @@ public class GamePanel extends JPanel {
         return instance;
     }
 
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
         g.drawImage(backgroundImage, 150, 0, null);
     }
 
+
+    // TODO will be implemented after iteration I
     private class GamePanelMouseHandler extends MouseAdapter {
-        @Override
         public void mousePressed(MouseEvent e) {
              int mouseX = e.getX();
              int mouseY = e.getY();
+
+             if (gameManager.getCurrentTurn() == "Attacker")
+                 gameManager.buyItem(e.getPoint(), attackUnitsPanel.getSelected());
+             else
+                 gameManager.buyItem(e.getPoint(), defenseUnitsPanel.getSelected());
         }
     }
-
 
 }

@@ -21,29 +21,33 @@ public class ActionPanel extends JPanel {
     // TODO a custom cursor for the game might be added after iteration I
     // private static final int MOUSE_WIDTH = 40;
     // private static final int MOUSE_HEIGHT = 40;
+    public static final int WIDTH = 500;
+    public static final int HEIGHT = 500;
 
+    private static final int DELAY = 160;
     private int mouseX, mouseY;
-
+    private GameManager gameManager;
+    private Timer timer;
 
     public ActionPanel() {
         setLayout(null);
         setOpaque(false);
+
+        gameManager = GameManager.getInstance();
+
+        // set timer
+        timer = new Timer(DELAY, iterateGameState -> {
+            gameManager.update();
+            repaint();
+        });
+        timer.start();
+
         setPreferredSize(new Dimension(500, 600));
-        addMouseListener(new ActionPanelMouseListener());
+        // addMouseListener(new ActionPanelMouseListener());
     }
 
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // TODO gameManager.render(g);
+        gameManager.render(g);
     }
-
-    private class ActionPanelMouseListener extends MouseAdapter {
-        @Override
-        public void mouseMoved(MouseEvent e) {
-            super.mouseMoved(e);
-            mouseX = e.getX();
-            mouseY = e.getY();
-        }
-    }
-
 }

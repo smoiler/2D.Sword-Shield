@@ -4,26 +4,21 @@ import util.Boundary;
 
 public class Spaceship extends GameObject{
 
-    private double speed;
-    private Boundary boundary;
+    private int speed;
     private double armor;
     private double hp;
     private int reward;
 
-    public double getSpeed() {
+    public Spaceship() {
+        super();
+    }
+
+    public int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
-    }
-
-    public Boundary getBoundary() {
-        return boundary;
-    }
-
-    public void setBoundary(Boundary boundary) {
-        this.boundary = boundary;
     }
 
     public double getArmor() {
